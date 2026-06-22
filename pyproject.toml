@@ -1,19 +1,20 @@
 [build-system]
-requires = ["pdm-backend"]
-build-backend = "pdm.backend"
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
 
 [project]
 # PEP 621 project metadata
 # See https://www.python.org/dev/peps/pep-0621/
 authors = [
     {name = "Frost Ming", email = "mianghong@gmail.com"},
+    {name = "maybetree", email = "maybetree@stratal.systems"},
 ]
 dynamic = ["version"]
 requires-python = ">=3.9"
 license = {text = "MIT"}
 dependencies = []
 description = "A markdown parser with high extensibility."
-name = "marko"
+name = "marko_raidoc"
 readme = "README.md"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -40,44 +41,45 @@ repr = ["objprint"]
 [project.scripts]
 marko = "marko.cli:main"
 
-[tool.pdm]
-plugins = [
-    "pdm-autoexport",
-]
+#[tool.pdm]
+#plugins = [
+#    "pdm-autoexport",
+#]
 
-[tool.pdm.version]
-source = "file"
-path = "marko/__init__.py"
+#[tool.pdm.version]
+#source = "file"
+#path = "marko/__init__.py"
 
-[tool.pdm.dev-dependencies]
-benchmark = [
-    "commonmark>=0.9",
-    "markdown>=3.3",
-    "markdown-it-py>=2.0; python_version >= '3.7'",
-    "mistune>=2.0",
-    "mistletoe>=0.7",
-]
-dev = [
-    "pytest",
-    "pytest-cov",
-    "mypy>=0.950",
-    "types-Pygments>=2.19.0.20251121",
-]
-doc = [
-    "marko[toc]",
-    "sphinx>=5.3.0",
-    "shibuya>=2023.6.8",
-]
-
-[[tool.pdm.autoexport]]
-filename = "docs/reqs.txt"
-groups = ["doc"]
-without-hashes = true
-
-[tool.isort]
-profile = "black"
+#[tool.pdm.dev-dependencies]
+#benchmark = [
+#    "commonmark>=0.9",
+#    "markdown>=3.3",
+#    "markdown-it-py>=2.0; python_version >= '3.7'",
+#    "mistune>=2.0",
+#    "mistletoe>=0.7",
+#]
+#dev = [
+#    "pytest",
+#    "pytest-cov",
+#    "mypy>=0.950",
+#    "types-Pygments>=2.19.0.20251121",
+#]
+#doc = [
+#    "marko[toc]",
+#    "sphinx>=5.3.0",
+#    "shibuya>=2023.6.8",
+#]
+#
+#[[tool.pdm.autoexport]]
+#filename = "docs/reqs.txt"
+#groups = ["doc"]
+#without-hashes = true
+#
+#[tool.isort]
+#profile = "black"
 
 [[tool.mypy.overrides]]
 # objprint is typed, just missing a py.typed marker
 module = ["objprint.*"]
 follow_untyped_imports = true
+

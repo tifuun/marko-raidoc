@@ -25,6 +25,7 @@ I will likely eventually re-write all of raidoc from scratch.
 - remove docs
 - remove precommit hook
 - alter README.md
+- alter pyproject.toml
 
 ## License
 
