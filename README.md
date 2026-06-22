@@ -26,6 +26,25 @@ I will likely eventually re-write all of raidoc from scratch.
 - remove precommit hook
 - alter README.md
 - alter pyproject.toml
+- use src layout
+
+## Using as a dependency
+
+I will not publish this package to PyPI because it is not
+up to production standards.
+To use as a pip dependency (e.g. pyproject.toml or requirements.txt),
+use the git repo syntax:
+
+```requirements.txt
+marko_raidoc@git+https://github.com/tifuun/marko-raidoc
+```
+
+`git` must be installed for this to work.
+To use additional features and pin at a specific commit (or tag name):
+
+```requirements.txt
+marko_raidoc[codehilite]@git+https://github.com/tifuun/marko-raidoc@4e4ebf7c3b813f02530a5af163777e9645a9c789
+```
 
 ## License
 
