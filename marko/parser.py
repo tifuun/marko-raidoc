@@ -66,6 +66,11 @@ class Parser:
             self.parse_inline(doc, source)
         return doc
 
+        # for raidoc
+        self.monkeypatch_source = source
+
+        return doc
+
     def parse_source(self, source: Source) -> list[block.BlockElement]:
         """Parse the source into a list of block elements."""
         element_list = self._build_block_element_list()
@@ -79,6 +84,46 @@ class Parser:
                         # instead some information to create one, which will be passed
                         # to ``__init__()``.
                         result = ele_type(result)  # type: ignore
+
+                    # for raidoc
+
+                    if not hasattr(result, 'monkeypatch_source'):
+                        result.monkeypatch_source = ''.join(
+                            match.string[match.span()[0]:match.span()[1]]
+                            for match in
+                            source.monkeypatch_lines
+                            )
+                        source.monkeypatch_lines.clear()
+
+                    ast.append(result)
+                    break
+            else:
+                # Quit the current parsing and go back to the last level.
+                break
+        return ast
+
+    def wtf4(self, source):
+        """Parse the source into a list of block elements."""
+        element_list = self._build_block_element_list()
+        ast: list[block.BlockElement] = []
+        while not source.exhausted:
+            for ele_type in element_list:
+                if ele_type.match(source):
+                    result = ele_type.parse(source)
+                    if not hasattr(result, "priority"):
+                        # In some cases ``parse()`` won't return the element, but
+                        # instead some information to create one, which will be passed
+                        # to ``__init__()``.
+                        result = ele_type(result)  # type: ignore
+
+                    if not hasattr(result, 'monkeypatch_source'):
+                        result.monkeypatch_source = ''.join(
+                            match.string[match.span()[0]:match.span()[1]]
+                            for match in
+                            source.monkeypatch_lines
+                            )
+                        source.monkeypatch_lines.clear()
+
                     ast.append(result)
                     break
             else:

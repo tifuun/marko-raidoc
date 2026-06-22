@@ -26,6 +26,10 @@ class Source:
     parser: Parser
 
     def __init__(self, text: str) -> None:
+
+        # for raidoc
+        self.monkeypatch_lines = []
+
         self._buffer = _preprocess_text(text)
         self.pos = 0
         self._anchor = 0
@@ -50,7 +54,12 @@ class Source:
 
     def push_state(self, element: BlockElement) -> None:
         """Push a new state to the state stack."""
+
+        # for raidoc
+        self.monkeypatch_lines.clear()
+
         self._states.append(element)
+
 
     def pop_state(self) -> BlockElement:
         """Pop the top most state."""
@@ -138,6 +147,18 @@ class Source:
 
     def consume(self) -> None:
         """Consume the body of source. ``pos`` will move forward."""
+
+        # for raidoc
+        # I honestly don't remember what this does
+        # or why it looks so ugly
+        # sorry
+        self.monkeypatch_lines.append(self.match)
+        self.state.monkeypatch_source = ''.join(
+            match.string[match.span()[0]:match.span()[1]]
+            for match in
+            self.monkeypatch_lines
+            )
+
         if self.match:
             self.pos = self.match.end()
             if self.match.group()[-1:] == "\n":

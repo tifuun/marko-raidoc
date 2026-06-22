@@ -10,6 +10,13 @@ I will likely eventually re-write all of raidoc from scratch.
 
 ## Changes from upstream
 
+- `Parser.parse` now gets a `monkeypatch_source` attribute
+    when `Praser.parse()` is called that points to the `Source`
+    object built from the input text
+
+- parsed AST nodes now have a `monkeypatch_source` attribute
+    that contains the input lines that created them as a string.
+
 ## non-code changes from upstream
 
 - remove github metadata and workflows
