@@ -7,7 +7,7 @@ import importlib
 import sys
 from argparse import ArgumentParser
 
-import marko
+import marko_raidoc
 
 
 def import_class(import_string):

@@ -8,14 +8,14 @@ import html
 import json
 from typing import TYPE_CHECKING, Any, overload
 
-from marko.html_renderer import HTMLRenderer
+from marko_raidoc.html_renderer import HTMLRenderer
 
 from .helpers import camel_to_snake_case
 from .renderer import Renderer, force_delegate
 
 if TYPE_CHECKING:
-    from marko import inline
-    from marko.element import Element
+    from marko_raidoc import inline
+    from marko_raidoc.element import Element
 
 
 class ASTRenderer(Renderer):

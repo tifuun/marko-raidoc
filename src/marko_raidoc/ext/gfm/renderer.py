@@ -3,9 +3,9 @@ from __future__ import annotations
 
 import re
 
-from marko.helpers import render_dispatch
-from marko.html_renderer import HTMLRenderer
-from marko.md_renderer import MarkdownRenderer
+from marko_raidoc.helpers import render_dispatch
+from marko_raidoc.html_renderer import HTMLRenderer
+from marko_raidoc.md_renderer import MarkdownRenderer
 
 
 class GFMRendererMixin:

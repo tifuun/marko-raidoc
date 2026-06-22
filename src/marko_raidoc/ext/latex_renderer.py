@@ -7,8 +7,8 @@ from __future__ import annotations
 import logging
 from typing import Iterable
 
-from marko.helpers import MarkoExtension
-from marko.renderer import Renderer
+from marko_raidoc.helpers import MarkoExtension
+from marko_raidoc.renderer import Renderer
 
 _logger = logging.getLogger(__name__)
 

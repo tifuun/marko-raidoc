@@ -10,13 +10,13 @@ User may also use the parser and renderer as bases for further extension.
 
 Example usage::
 
-    from marko.ext.gfm import gfm
+    from marko_raidoc.ext.gfm import gfm
     print(gfm(text))
 
 """
 
-from marko import Markdown
-from marko.helpers import MarkoExtension
+from marko_raidoc import Markdown
+from marko_raidoc.helpers import MarkoExtension
 
 from . import elements, renderer
 

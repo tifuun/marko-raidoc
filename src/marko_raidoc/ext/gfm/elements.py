@@ -8,8 +8,8 @@ import itertools
 import re
 from typing import Any, cast
 
-from marko import block, inline
-from marko.source import Source
+from marko_raidoc import block, inline
+from marko_raidoc.source import Source
 
 
 class Paragraph(block.Paragraph):

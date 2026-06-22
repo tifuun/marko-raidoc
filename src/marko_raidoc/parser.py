@@ -23,6 +23,10 @@ class Parser:
     """
 
     def __init__(self) -> None:
+
+        # TODO!
+        self.monkeypatch_source = None
+
         self.block_elements: dict[str, BlockElementType] = {}
         self.inline_elements: dict[str, InlineElementType] = {}
 

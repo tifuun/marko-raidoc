@@ -11,7 +11,7 @@ Arguments:
 
 Usage::
 
-    from marko import Markdown
+    from marko_raidoc import Markdown
 
     markdown = Markdown(extensions=['codehilite'])
     markdown.convert('```python filename="my_script.py"\nprint('hello world')\n```')
@@ -27,8 +27,8 @@ from pygments.formatters import html
 from pygments.lexers import get_lexer_by_name, guess_lexer
 from pygments.util import ClassNotFound
 
-from marko import HTMLRenderer
-from marko.helpers import MarkoExtension, render_dispatch
+from marko_raidoc import HTMLRenderer
+from marko_raidoc.helpers import MarkoExtension, render_dispatch
 
 if TYPE_CHECKING:
     from typing import Any

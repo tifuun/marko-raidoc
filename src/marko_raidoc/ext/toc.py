@@ -14,7 +14,7 @@ Arguments:
 
 Usage::
 
-    from marko import Markdown
+    from marko_raidoc import Markdown
 
     markdown = Markdown(extensions=['toc'])
 
@@ -25,8 +25,8 @@ Usage::
 
 import re
 
-from marko.helpers import MarkoExtension, render_dispatch
-from marko.html_renderer import HTMLRenderer
+from marko_raidoc.helpers import MarkoExtension, render_dispatch
+from marko_raidoc.html_renderer import HTMLRenderer
 
 try:
     from slugify import slugify

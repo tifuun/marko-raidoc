@@ -10,12 +10,12 @@ from functools import partial
 from importlib import import_module
 from typing import TYPE_CHECKING, Callable, Generic, TypeVar, overload
 
-from marko.renderer import Renderer
+from marko_raidoc.renderer import Renderer
 
 if TYPE_CHECKING:
     from typing import Any, Container, Iterable
 
-    from marko.element import Element
+    from marko_raidoc.element import Element
 
 
 T = TypeVar("T")
@@ -120,7 +120,7 @@ def load_extension(name: str, **kwargs: Any) -> MarkoExtension:
     module = None
     if "." not in name:
         try:
-            module = import_module(f"marko.ext.{name}")
+            module = import_module(f"marko_raidoc.ext.{name}")
         except ImportError:
             pass
     if module is None:
@@ -145,7 +145,7 @@ class _RendererDispatcher(Generic[T, ElementT, U]):
         types: type[Renderer] | tuple[type[Renderer], ...],
         func: RendererFunc[T, ElementT, U],
     ) -> None:
-        from marko.ast_renderer import ASTRenderer, XMLRenderer
+        from marko_raidoc.ast_renderer import ASTRenderer, XMLRenderer
 
         self._mapping = {types: func}
         self._mapping.setdefault((ASTRenderer, XMLRenderer), self.render_ast)

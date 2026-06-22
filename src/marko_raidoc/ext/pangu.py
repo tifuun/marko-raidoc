@@ -11,7 +11,7 @@ Example::
     input: 中国有13亿人口
     output: 中国有<span class="pangu"></span>13<span class="pangu"></span>亿人口
 
-    from marko import Markdown
+    from marko_raidoc import Markdown
 
     markdown = Markdown(extensions=['pangu'])
     print(markdown(text))
@@ -19,8 +19,8 @@ Example::
 
 import re
 
-from marko import HTMLRenderer
-from marko.helpers import MarkoExtension
+from marko_raidoc import HTMLRenderer
+from marko_raidoc.helpers import MarkoExtension
 
 CJK_RE = (
     r"\u2e80-\u2eff\u2f00-\u2fdf\u3040-\u309f\u30a0-\u30ff\u3100-\u312f"

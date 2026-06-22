@@ -6,12 +6,12 @@ import types
 from contextlib import contextmanager
 from typing import TYPE_CHECKING, Generator, Match, Pattern, cast, overload
 
-from marko.block import BlockElement, Document
+from marko_raidoc.block import BlockElement, Document
 
 if TYPE_CHECKING:
     from typing import Literal
 
-    from marko.parser import Parser
+    from marko_raidoc.parser import Parser
 
 
 def _preprocess_text(text: str) -> str:

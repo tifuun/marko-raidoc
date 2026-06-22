@@ -7,7 +7,7 @@ Enable footnotes parsing and renderering in Marko.
 
 Usage::
 
-    from marko import Markdown
+    from marko_raidoc import Markdown
 
     text = 'Foo[^1]\\n\\n[^1]: This is a footnote.\\n'
     markdown = Markdown(extensions=['footnote'])
@@ -18,8 +18,8 @@ from __future__ import annotations
 
 import re
 
-from marko import HTMLRenderer, block, helpers, inline
-from marko.md_renderer import MarkdownRenderer
+from marko_raidoc import HTMLRenderer, block, helpers, inline
+from marko_raidoc.md_renderer import MarkdownRenderer
 
 
 class Document(block.Document):
