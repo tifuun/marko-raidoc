@@ -10,7 +10,7 @@ authors = [
     {name = "maybetree", email = "maybetree@stratal.systems"},
 ]
 #dynamic = ["version"]
-version = "1.0.0"
+version = "1.0.1"
 requires-python = ">=3.9"
 license = {text = "MIT"}
 dependencies = []
