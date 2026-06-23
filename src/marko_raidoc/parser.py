@@ -24,9 +24,6 @@ class Parser:
 
     def __init__(self) -> None:
 
-        # TODO!
-        self.monkeypatch_source = None
-
         self.block_elements: dict[str, BlockElementType] = {}
         self.inline_elements: dict[str, InlineElementType] = {}
 
@@ -64,14 +61,15 @@ class Parser:
         """
         source = Source(text)
         source.parser = self
+
+        # for raidoc
+        self.monkeypatch_source = source
+
         doc = cast(block.Document, self.block_elements["Document"]())
         with source.under_state(doc):
             doc.children = self.parse_source(source)
             self.parse_inline(doc, source)
         return doc
-
-        # for raidoc
-        self.monkeypatch_source = source
 
         return doc
 
